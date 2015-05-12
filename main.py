@@ -5,6 +5,7 @@ import hashlib
 
 class Application(Frame):
     def __init__(self, master=None):
+        """Main application window"""
         Frame.__init__(self, master)
         self.master = master
         self.pack()
@@ -55,6 +56,7 @@ class Application(Frame):
 
 
 def checksum_md5(file):
+    """Calculate MD5 checksum"""
     m = hashlib.md5()
     with open(file, "rb") as f:
         for chunk in iter(lambda: f.read(128 * m.block_size), b''):
@@ -63,6 +65,7 @@ def checksum_md5(file):
 
 
 def checksum_sha1(file):
+    """Calculate SHA-1 checksum"""
     m = hashlib.sha1()
     with open(file, "rb") as f:
         for chunk in iter(lambda: f.read(128 * m.block_size), b''):
@@ -71,6 +74,7 @@ def checksum_sha1(file):
 
 
 def checksum_sha256(file):
+    """Calculate SHA-256 checksum"""
     m = hashlib.sha256()
     with open(file, "rb") as f:
         for chunk in iter(lambda: f.read(128 * m.block_size), b''):
@@ -79,6 +83,7 @@ def checksum_sha256(file):
 
 
 def checksum_sha512(file):
+    """Calculate SHA-512 checksum"""
     m = hashlib.sha512()
     with open(file, "rb") as f:
         for chunk in iter(lambda: f.read(128 * m.block_size), b''):
